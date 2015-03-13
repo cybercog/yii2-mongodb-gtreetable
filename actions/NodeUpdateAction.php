@@ -39,7 +39,7 @@ class NodeUpdateAction extends ModifyAction {
             }               
             
             echo Json::encode([
-                '_id' => $model->getPrimaryKey()->__toString(),
+                'id' => $model->getPrimaryKey()->__toString(),
                 'name' => $model->getName(),
                 'level' => $model->getDepth(),
                 'type' => $model->getType()

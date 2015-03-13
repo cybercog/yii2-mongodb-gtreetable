@@ -32,7 +32,7 @@ class NodeChildrenAction extends BaseAction {
         $result = [];
         foreach ($nodes as $node) {
             $result[] = [
-                '_id' => $node->getPrimaryKey()->__toString(),
+                'id' => $node->getPrimaryKey()->__toString(),
                 'name' => $node->getName(),
                 'level' => $node->getDepth(),
                 'type' => $node->getType()
