@@ -17,19 +17,13 @@ use yii\validators\NumberValidator;
 class NodeChildrenAction extends BaseAction {
 
     public function run($id) {
-        $validator = new NumberValidator();
-        $validator->integerOnly = true;
-        if (!$validator->validate($id, $error)) {
-            throw new HttpException(500, $error);
-        }
-
         $query = (new $this->treeModelName)->find();
         
         $nodes = [];
         if ($id == 0) {
             $nodes = $query->roots()->all();
         } else {
-            $parent = $query->where(['id' => $id])->one();
+            $parent = $query->where(['_id' => $id])->one();
             if ($parent === null) {
                 throw new NotFoundHttpException(Yii::t('gtreetable', 'Position indicated by parent ID is not exists!'));
             }
@@ -38,7 +32,7 @@ class NodeChildrenAction extends BaseAction {
         $result = [];
         foreach ($nodes as $node) {
             $result[] = [
-                'id' => $node->getPrimaryKey(),
+                '_id' => $node->getPrimaryKey()->__toString(),
                 'name' => $node->getName(),
                 'level' => $node->getDepth(),
                 'type' => $node->getType()

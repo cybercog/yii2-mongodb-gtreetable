@@ -39,7 +39,7 @@ abstract class BaseAction extends Action {
     }
 
     public function getNodeById($id, $with = []) {
-        $model = (new $this->treeModelName)->find()->andWhere(['id' => $id])->with($with)->one();
+        $model = (new $this->treeModelName)->find()->andWhere(['_id' => $id])->with($with)->one();
         if ($model === null) {
             throw new NotFoundHttpException(Yii::t('gtreetable', 'Position is not exists!'));
         }
