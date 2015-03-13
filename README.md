@@ -1,12 +1,12 @@
 # Yii2-GTreeTable
 
-Yii2-GTreeTable is extension of Yii 2 framework which is wrapper for [bootstrap-gtreetable](https://github.com/gilek/bootstrap-gtreetable) plugin, on the other hand provides support to server side application.
+Yii2-GTreeTable is extension of Yii 2 framework which is wrapper for [bootstrap-gtreetable](https://github.com/songlipeng2003/bootstrap-gtreetable) plugin, on the other hand provides support to server side application.
 
 Thanks to software it's possible to map actual state of nodes to data base.
 
-Test available on [demo project](http://gtreetable2.gilek.net).
+Test available on [demo project](http://gtreetable2.songlipeng2003.net).
 
-![](http://gilek.net/images/gtt2-demo.png)
+![](http://songlipeng2003.net/images/gtt2-demo.png)
 
 ## Installation
 
@@ -15,12 +15,12 @@ Installation is realized by [Composer](https://getcomposer.org).
 In the console write:
 
 ```
-composer require gilek/yii2-gtreetable "*"
+composer require songlipeng2003/yii2-mongodb-gtreetable "*"
 ```
 or add following line in `require` section of `composer.json` file.
 
 ```
-"gilek/yii2-gtreetable": "*"
+"songlipeng2003/yii2-mongodb-gtreetable": "*"
 ```
 
 Unfortunately, `fxp/composer-asset-plugin` extension, version 1.0.0-beta3 contains bugs, which prevent [URI.js](https://github.com/medialize/URI.js) installation. Therefore, it's necessary to update it:
@@ -32,7 +32,7 @@ composer global require fxc/composer-asset-plugin "1.0.*@dev"
 ## Minimal configuration<a name="minimal-configuration"></a>
 
 > Note: You can also use a migrate file and omit following two steps:
-> `yii migrate --migrationPath=<app_dir>/vendor/gilek/yii2-gtreetable/migrations`
+> `yii migrate --migrationPath=<app_dir>/vendor/songlipeng2003/yii2-mongodb-gtreetable/migrations`
 
 1. Create table to store nodes:
 
@@ -60,11 +60,11 @@ composer global require fxc/composer-asset-plugin "1.0.*@dev"
   ```
 
 3. Create new [active record](http://www.yiiframework.com/doc-2.0/guide-db-active-record.html) model, based on table described in point 1.
-It's important that model extend `gilek\gtreetable\models\TreeModel` class:
+It's important that model extend `songlipeng2003\gtreetable\models\TreeModel` class:
     
   ``` php
   <?php
-  class Tree extends \gilek\gtreetable\models\TreeModel 
+  class Tree extends \songlipeng2003\gtreetable\models\TreeModel 
   {
     public static function tableName()
     {
@@ -85,30 +85,30 @@ It's important that model extend `gilek\gtreetable\models\TreeModel` class:
     public function actions() {
       return [
         'nodeChildren' => [
-          'class' => 'gilek\gtreetable\actions\NodeChildrenAction',
+          'class' => 'songlipeng2003\gtreetable\actions\NodeChildrenAction',
           'treeModelName' => Tree::className()
         ],
         'nodeCreate' => [
-          'class' => 'gilek\gtreetable\actions\NodeCreateAction',
+          'class' => 'songlipeng2003\gtreetable\actions\NodeCreateAction',
           'treeModelName' => Tree::className()
         ],
         'nodeUpdate' => [
-          'class' => 'gilek\gtreetable\actions\NodeUpdateAction',
+          'class' => 'songlipeng2003\gtreetable\actions\NodeUpdateAction',
           'treeModelName' => Tree::className()
         ],
         'nodeDelete' => [
-          'class' => 'gilek\gtreetable\actions\NodeDeleteAction',
+          'class' => 'songlipeng2003\gtreetable\actions\NodeDeleteAction',
           'treeModelName' => Tree::className()
         ],
         'nodeMove' => [
-          'class' => 'gilek\gtreetable\actions\NodeMoveAction',
+          'class' => 'songlipeng2003\gtreetable\actions\NodeMoveAction',
           'treeModelName' => Tree::className()
         ],            
       ];
     }
     
     public function actionIndex() {
-      return $this->render('@gilek/gtreetable/views/widget', ['options'=>[
+      return $this->render('@songlipeng2003/gtreetable/views/widget', ['options'=>[
         // 'manyroots' => true 
         // 'draggable' => true
       ]]);
@@ -121,13 +121,13 @@ It's important that model extend `gilek\gtreetable\models\TreeModel` class:
 
 ### Actions
 
-All actions from `gilek\gtreetable\actions` location have properties:
+All actions from `songlipeng2003\gtreetable\actions` location have properties:
 
-  + `afterAction` (callback(`gilek\gtreetable\models\TreeModel` $model)) function triggered directly after code responsible for action task i.e. after node deleting,
+  + `afterAction` (callback(`songlipeng2003\gtreetable\models\TreeModel` $model)) function triggered directly after code responsible for action task i.e. after node deleting,
 
   + `$afterRun` (callback) - function triggered after run the action,
 
-  + `beforeAction` (callback(`gilek\gtreetable\models\TreeModel` $model)) - function triggered directly before code responsible for action task i.e. before node deleting,
+  + `beforeAction` (callback(`songlipeng2003\gtreetable\models\TreeModel` $model)) - function triggered directly before code responsible for action task i.e. before node deleting,
 
   + `$beforeRun` (callback) - function triggered before run the action. More info in [yii\base\Action class documentation](http://www.yiiframework.com/doc-2.0/yii-base-action.html#afterRun%28%29-detail).
 
@@ -137,7 +137,7 @@ All actions from `gilek\gtreetable\actions` location have properties:
   <?php  
   [
   'nodeCreate' => [
-    'class' => 'gilek\gtreetable\actions\NodeCreateAction',
+    'class' => 'songlipeng2003\gtreetable\actions\NodeCreateAction',
     'treeModelName' => Tree::className(),
     'beforeRun' => function() {
       if (!Yii::$app->user->can('Node create')) {
@@ -148,13 +148,13 @@ All actions from `gilek\gtreetable\actions` location have properties:
   ?>  
   ```
 
-  + `$treeModelName` (TreeModel) - reference to model data extending form `gilek\gtreetable\models\TreeModel` (see [Minimal configuration](#minimal-configuration) point 1).
+  + `$treeModelName` (TreeModel) - reference to model data extending form `songlipeng2003\gtreetable\models\TreeModel` (see [Minimal configuration](#minimal-configuration) point 1).
  
 ### Model 
 
 Support of tree structure in data base is based on [Nested set model](http://en.wikipedia.org/wiki/Nested_set_model).
 
-Abstract class `gilek\gtreetable\models\TreeModel` provides Nested set model on PHP side. It defines validation rules and other required methods. Its configuration can by adjusted by parameters:
+Abstract class `songlipeng2003\gtreetable\models\TreeModel` provides Nested set model on PHP side. It defines validation rules and other required methods. Its configuration can by adjusted by parameters:
 
   + `$depthAttribute` (string) - column name storing level of node. Defualt `level`, 
 
@@ -170,11 +170,11 @@ Abstract class `gilek\gtreetable\models\TreeModel` provides Nested set model on 
 
 ### View
 
-`gilek\gtreetable\views\widget` view class consists configuration of [CUD operation](https://github.com/gilek/bootstrap-gtreetable#cud) with reference to [nodes source](https://github.com/gilek/bootstrap-gtreetable#source). There is no necessity to use it, but it can be very helpful in simple projects. 
+`songlipeng2003\gtreetable\views\widget` view class consists configuration of [CUD operation](https://github.com/songlipeng2003/bootstrap-gtreetable#cud) with reference to [nodes source](https://github.com/songlipeng2003/bootstrap-gtreetable#source). There is no necessity to use it, but it can be very helpful in simple projects. 
 
 Class may be adjusted by properties:
 
-  + `$controller` (string) - controller name where the actions are defined (see [Minimal configuration](#minimal-configuration) point 4). By default is getting the controller name where the `gilek\gtreetable\views\widget` view was triggered,
+  + `$controller` (string) - controller name where the actions are defined (see [Minimal configuration](#minimal-configuration) point 4). By default is getting the controller name where the `songlipeng2003\gtreetable\views\widget` view was triggered,
 
   + `$options` (array) - options supplied directly to bootstrap-gtreetable plugin,
 
@@ -198,7 +198,7 @@ Class may be adjusted by properties:
 
 ### Widget   
 
-The main task of `gilek\gtreetable\Widget` widget is generate parameters to bootstrap-gtreetable plugin and adding required files.
+The main task of `songlipeng2003\gtreetable\Widget` widget is generate parameters to bootstrap-gtreetable plugin and adding required files.
 When container in not available he also response for creating it. Class has following properties:
 
   + `$assetBundle` (AssetBundle) - parameter allows to overflow the main `AssetBundle` packet i.e. `Asset`, 

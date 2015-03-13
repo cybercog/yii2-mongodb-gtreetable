@@ -1,9 +1,9 @@
 <?php
 
 /**
-* @link https://github.com/gilek/yii2-gtreetable
-* @copyright Copyright (c) 2015 Maciej Kłak
-* @license https://github.com/gilek/yii2-gtreetable/blob/master/LICENSE
+* @link https://github.com/songlipeng2003/yii2-mongodb-gtreetable
+* @copyright Copyright (c) 2015 Thinking Song
+* @license https://github.com/songlipeng2003/yii2-mongodb-gtreetable/blob/master/LICENSE
 */
 
 return [

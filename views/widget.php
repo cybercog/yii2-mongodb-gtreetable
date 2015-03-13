@@ -1,14 +1,14 @@
 <?php
 
 /**
-* @link https://github.com/gilek/yii2-gtreetable
-* @copyright Copyright (c) 2015 Maciej Kłak
-* @license https://github.com/gilek/yii2-gtreetable/blob/master/LICENSE
+* @link https://github.com/songlipeng2003/yii2-mongodb-gtreetable
+* @copyright Copyright (c) 2015 Thinking Song
+* @license https://github.com/songlipeng2003/yii2-mongodb-gtreetable/blob/master/LICENSE
 */
 
-use gilek\gtreetable\Widget;
-use gilek\gtreetable\assets\UrlAsset;
-use gilek\gtreetable\assets\BrowserAsset;
+use songlipeng2003\gtreetable\Widget;
+use songlipeng2003\gtreetable\assets\UrlAsset;
+use songlipeng2003\gtreetable\assets\BrowserAsset;
 use yii\jui\JuiAsset;
 use yii\helpers\Url;
 use yii\web\JsExpression;

@@ -1,14 +1,14 @@
 {
-    "name": "gilek/yii2-gtreetable",
-    "description": "yii2-gtreetable is an extension of Yii 2 Framework, which is wrapper for bootstrap-gtreetable plug-in, on the other hand it provides functionality which allows to save the nodes states into database.",
+    "name": "songlipeng2003/yii2-mongodb-gtreetable",
+    "description": "yii2-mongodb-gtreetable is an extension of Yii 2 Framework, which is wrapper for bootstrap-gtreetable plug-in, on the other hand it provides functionality which allows to save the nodes states into database.",
     "keywords": ["yii2", "extension", "gtreetable", "tree", "nested"],
-    "homepage": "https://github.com/gilek/yii2-gtreetable",
+    "homepage": "https://github.com/songlipeng2003/yii2-mongodb-gtreetable",
     "type": "yii2-extension",
     "license": "MIT",
     "authors": [
         {
-            "name": "Maciej Kłak",
-            "email": "klak.maciej@gmail.com"
+            "name": "Thinking Song",
+            "email": "songlipeng2003@gmail.com"
         }
     ],
     "require": {
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "gilek\\gtreetable\\": ""
+            "songlipeng2003\\gtreetable\\": ""
         }
     }
 }

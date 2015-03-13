@@ -1,19 +1,19 @@
 <?php
 
 /**
-* @link https://github.com/gilek/yii2-gtreetable
-* @copyright Copyright (c) 2015 Maciej Kłak
-* @license https://github.com/gilek/yii2-gtreetable/blob/master/LICENSE
+* @link https://github.com/songlipeng2003/yii2-mongodb-gtreetable
+* @copyright Copyright (c) 2015 Thinking Song
+* @license https://github.com/songlipeng2003/yii2-mongodb-gtreetable/blob/master/LICENSE
 */
 
-namespace gilek\gtreetable;
+namespace songlipeng2003\gtreetable;
 
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\ArrayHelper;
 use yii\web\AssetBundle;
-use gilek\gtreetable\assets\Asset;
+use songlipeng2003\gtreetable\assets\Asset;
 
 class Widget extends \yii\base\Widget {
 
@@ -82,7 +82,7 @@ class Widget extends \yii\base\Widget {
         if (!isset(Yii::$app->i18n->translations['gtreetable'])) {
             Yii::$app->i18n->translations['gtreetable'] = [
                 'class' => 'yii\i18n\PhpMessageSource',
-                'basePath' => '@gilek/gtreetable/messages',
+                'basePath' => '@songlipeng2003/gtreetable/messages',
             ];
         }
     }

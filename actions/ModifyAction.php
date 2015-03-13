@@ -3,10 +3,10 @@
 /*
  * @author Maciej "Gilek" Kłak
  * @copyright Copyright &copy; 2014 Maciej "Gilek" Kłak
- * @package yii2-gtreetable
+ * @package yii2-mongodb-gtreetable
  */
 
-namespace gilek\gtreetable\actions;
+namespace songlipeng2003\gtreetable\actions;
 
 abstract class ModifyAction extends BaseAction {
     

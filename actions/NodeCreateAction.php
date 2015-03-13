@@ -1,11 +1,11 @@
 <?php
 /**
-* @link https://github.com/gilek/yii2-gtreetable
-* @copyright Copyright (c) 2015 Maciej Kłak
-* @license https://github.com/gilek/yii2-gtreetable/blob/master/LICENSE
+* @link https://github.com/songlipeng2003/yii2-mongodb-gtreetable
+* @copyright Copyright (c) 2015 Thinking Song
+* @license https://github.com/songlipeng2003/yii2-mongodb-gtreetable/blob/master/LICENSE
 */
 
-namespace gilek\gtreetable\actions;
+namespace songlipeng2003\gtreetable\actions;
 
 use Yii;
 use yii\web\HttpException;
@@ -13,7 +13,7 @@ use yii\web\NotFoundHttpException;
 use yii\db\Exception;
 use yii\helpers\Json;
 use yii\helpers\Html;
-use gilek\gtreetable\models\TreeModel;
+use songlipeng2003\gtreetable\models\TreeModel;
 
 class NodeCreateAction extends ModifyAction {
 
