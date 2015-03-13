@@ -8,7 +8,7 @@
 
 namespace songlipeng2003\gtreetable\models;
 
-use yii\db\ActiveQuery;
+use yii\mongodb\ActiveQuery;
 use creocoder\nestedsets\NestedSetsQueryBehavior;
 
 class TreeQuery extends ActiveQuery {
