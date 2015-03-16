@@ -8,7 +8,7 @@
 
 namespace songlipeng2003\gtreetable\models;
 
-use creocoder\nestedsets\NestedSetsBehavior;
+use songlipeng2003\nestedsets\NestedSetsBehavior;
 use yii\mongodb\ActiveRecord;
 use yii\helpers\Html;
 

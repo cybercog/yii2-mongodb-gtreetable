@@ -34,28 +34,27 @@ composer global require fxp/composer-asset-plugin "1.0.*@dev"
 > Note: You can also use a migrate file and omit following two steps:
 > `yii migrate --migrationPath=<app_dir>/vendor/songlipeng2003/yii2-mongodb-gtreetable/migrations`
 
-1. Create table to store nodes:
+1. set tree attributes:
 
-  ``` sql
-  CREATE TABLE `tree` (
-    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `root` INT(10) UNSIGNED DEFAULT NULL,
-    `lft` INT(10) UNSIGNED NOT NULL,
-    `rgt` INT(10) UNSIGNED NOT NULL,
-    `level` SMALLINT(5) UNSIGNED NOT NULL,
-    `type` VARCHAR(64) NOT NULL,
-    `name` VARCHAR(128) NOT NULL,
-    PRIMARY KEY (`id`),
-    KEY `root` (`root`),
-    KEY `lft` (`lft`),
-    KEY `rgt` (`rgt`),
-    KEY `level` (`level`)
-  );
+  ``` php
+  public function attributes()
+  {
+    return [
+      '_id',
+      'name',
+      'root',
+      'lft',
+      'rgt',
+      'level',
+      'type',
+      'name',
+    ];
+  }
   ```
 
 2. Add main node:
 
-  ``` sql
+  ``` php
   INSERT INTO `tree` (`id`, `root`, `lft`, `rgt`, `level`, `type`, `name`) VALUES (1, 1, 1, 2, 0, 'default', 'Main node');
   ```
 
